@@ -1,0 +1,52 @@
+.layui-footer{
+    text-align: center;
+}
+.iconfont{
+    margin-right: 10px;
+}
+.layui-icon{
+    margin: 0 10px;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+}
+.layui-body{
+    overflow: hidden;
+}
+
+a{
+    transition: none !important;
+}
+.userInfo{
+    height: 60px;
+    width: 200px;
+    line-height: 60px;
+    text-align: center;
+    user-select: none;
+    border-bottom: 1px solid #282b33;
+}
+.userInfo a{
+    color: #fff;
+}
+.layui-nav-img{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+   
+}
+/* 通过line-height=与height相同，实现了在60px高的盒子内竖直居中效果 */
+.text-avatar{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #009688;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    /* 但是修改font-size后，居中失效 */
+    font-size: 20px;
+    position: relative;
+    top: 4px;
+
+}

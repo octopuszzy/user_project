@@ -83,7 +83,7 @@ $(function(){
                 console.log(res);
                 // 将登录成功得到的token字符串，保存到localStorage中
                 localStorage.setItem('token',res.token)
-                // 跳转到后台主页
+                // 跳转到后台主页g
                 location.href = 'index.html'
             }
         })
