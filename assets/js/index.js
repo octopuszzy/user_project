@@ -4,39 +4,7 @@ $(function(){
 
     var layer = layui.layer
     var confirm = layer.confirm
-    // 获取用户信息
-    function getUserInfo(){
-        $.ajax({
-            method: 'GET',
-            url: '/my/userinfo',
-            // 请求头携带token
-            // headers: {
-            //     Authorization: localStorage.getItem('token') || ''
-            // },
-            success: function(res){
-                console.log(res);
-                if(res.status !== 0){
-                    return layer.msg('请求失败')
-                }
-                else{
-                    // 调用渲染头像方法
-                    renderAvatar(res.data)
-                }
-            },
-            // 不论成功还是失败，最终都会调用 complete 回调函数
-            // complete: function(res) {
-            //   // console.log('执行了 complete 回调：')
-            //   // console.log(res)
-            //   // 在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
-            //   if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
-            //     // 1. 强制清空 token
-            //     localStorage.removeItem('token')
-            //     // 2. 强制跳转到登录页面
-            //     location.href = '/login.html'
-            //   }
-            // }
-        })
-    }
+    
 
     // 退出功能
     $('#btnLogout').on('click',function(){
@@ -52,7 +20,43 @@ $(function(){
           });
     })
     
+    
 })
+
+// 获取用户信息
+function getUserInfo(){
+    $.ajax({
+        method: 'GET',
+        url: '/my/userinfo',
+        // 请求头携带token
+        // headers: {
+        //     Authorization: localStorage.getItem('token') || ''
+        // },
+        success: function(res){
+            console.log(res);
+            if(res.status !== 0){
+                return layer.msg('请求失败')
+            }
+            else{
+                // 调用渲染头像方法
+                renderAvatar(res.data)
+            }
+        },
+        // 不论成功还是失败，最终都会调用 complete 回调函数
+        // complete: function(res) {
+        //   // console.log('执行了 complete 回调：')
+        //   // console.log(res)
+        //   // 在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
+        //   if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
+        //     // 1. 强制清空 token
+        //     localStorage.removeItem('token')
+        //     // 2. 强制跳转到登录页面
+        //     location.href = '/login.html'
+        //   }
+        // }
+    })
+}
+
 
 // 渲染头像
 function renderAvatar(user){
@@ -64,13 +68,11 @@ function renderAvatar(user){
     if(user.user_pic !== null){
         $('.text-avatar').hide()
         $('.layui-nav-img').attr('src',user.user_pic).show()
-    }
+}
     // 渲染文本头像
     else{
         $('.layui-nav-img').hide();
         var first = name[0].toUpperCase();
         $('.text-avatar').html(first).show()
-    }
 }
-
-
+}
